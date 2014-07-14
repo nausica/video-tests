@@ -1,0 +1,40 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="other_components/jquery-tmpl/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="other_components/jquery-inview/jquery.inview.js"></script>
+<script type="text/javascript" src="story.js"></script>
+</head>
+<body>
+	<div class="container"></div>
+	<hr>
+</body>
+<script>
+$(function() {
+	// Data
+	var data = [{
+		title: "Episode 1",
+		text: "The video plays the range 10 seconds through 20 seconds.",
+		src : "video/video.ogg",
+		startTime : 10,
+		endTime : 20
+	},{
+		title: "Episode 2",
+		text: "The video plays the range 60 seconds through 80 seconds.",
+		src : "video/video.ogg",
+		startTime : 60,
+		endTime : 80
+	}];
+
+	// Render
+	var container = $(".container");
+	var testStory = $(container).Story().init({});
+
+	// Add episodes
+	$.each(data, function(idx, episode){
+		testStory.addEpisode(episode);
+	});
+});
+</script>
+</html>
